@@ -3,7 +3,6 @@ export function createApp(db) {
   const app = express();
   app.use(express.json({ limit: '10kb' }));
   app.use(express.static('public'));
-  app.get('/', (req, res) => res.redirect('/index.html'));
   app.get('/api/health', (req, res) => res.json({ ok: true }));
   app.get('/api/projects', async (req, res) => res.json(await db.list()));
   function readId(req, res) {
