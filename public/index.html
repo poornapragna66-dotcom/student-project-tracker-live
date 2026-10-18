@@ -1,0 +1,64 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Workshop readiness</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Student Project Tracker</h1>
+            <p>Track our electronics project ideas.</p>
+        </header>
+
+        <section aria-labelledby="form-title">
+            <h2 id="form-title">Add or Edit Project</h2>
+
+            <form id="project-form">
+                <div>
+                    <label for="name">Project Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        maxlength="80"
+                    >
+                </div>
+
+                <div>
+                    <label for="status">Project Status</label>
+                    <select id="status" name="status">
+                        <option value="Planned">Planned</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <button id="save-button" type="submit">Save Project</button>
+
+                <button id="cancel-button" type="button" hidden>
+                    Cancel
+                </button>
+            </form>
+
+            <p id="message" role="status" aria-live="polite"></p>
+        </section>
+
+        <section aria-labelledby="list-title">
+            <h2 id="list-title">Projects</h2>
+
+            <p id="empty-state">No projects have been added yet.</p>
+
+            <ul id="project-list"></ul>
+        </section>
+    </main>
+</body>
+</html>
+```
