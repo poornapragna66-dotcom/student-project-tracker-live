@@ -1,11 +1,14 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import express from 'express';
 export function createApp(db) {
   const app = express();
   app.use(express.json({ limit: '10kb' }));
   app.use(express.static('public'));
   app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: 'public' });
-});
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
   app.get('/api/health', (req, res) => res.json({ ok: true }));
   app.get('/api/projects', async (req, res) => res.json(await db.list()));
   function readId(req, res) {
