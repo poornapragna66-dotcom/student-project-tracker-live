@@ -8,7 +8,7 @@ export function createApp(db) {
   app.use(express.json({ limit: '10kb' }));
   app.use(express.static('public'));
   app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));});
   app.get('/api/health', (req, res) => res.json({ ok: true }));
   app.get('/api/projects', async (req, res) => res.json(await db.list()));
   function readId(req, res) {
